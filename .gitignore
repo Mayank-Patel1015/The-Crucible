@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+*.db
+
+# Local model files
+models/
+llama.cpp/
+
+# Next.js
+crucible-web/.next/
+crucible-web/node_modules/
+crucible-web/*.tsbuildinfo
+
+# Misc
+.DS_Store

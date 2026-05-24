@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes ember-pulse {
+  0%, 100% { opacity: 1; filter: drop-shadow(0 0 8px #f97316); }
+  50%       { opacity: 0.7; filter: drop-shadow(0 0 20px #ef4444); }
+}
+.streak-ember { animation: ember-pulse 2s ease-in-out infinite; }
+
+@keyframes danger-pulse {
+  0%, 100% { color: #ef4444; }
+  50%       { color: #fca5a5; }
+}
+.countdown-danger { animation: danger-pulse 1s ease-in-out infinite; }
