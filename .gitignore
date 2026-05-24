@@ -11,6 +11,7 @@ llama.cpp/
 crucible-web/.next/
 crucible-web/node_modules/
 crucible-web/*.tsbuildinfo
+crucible-web/.vercel/
 
 # Misc
 .DS_Store
