@@ -28,7 +28,7 @@ The project is in active development. The first few missions are live and the co
 Clone the repository and run locally:
 
 ```bash
-git clone https://github.com/yourusername/the-crucible.git
+git clone https://github.com/Mayank-Patel1015/the-crucible.git
 cd the-crucible
 # Follow setup instructions in the repo (or run the dev server)
 npm install
