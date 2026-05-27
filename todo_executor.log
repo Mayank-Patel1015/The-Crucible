@@ -1,1 +1,40 @@
 2026-05-27 05:59:52,136 INFO No markdown checkbox tasks found in C:\Users\mayan\Desktop\The-Crucible\crucible-web\TODO.md
+2026-05-27 06:07:05,668 INFO Processing task: Provision and connect the Supabase backend
+2026-05-27 06:07:05,668 INFO Dry run: would execute task with route=ollama
+2026-05-27 06:07:05,668 INFO Processing task: Apply `crucible-web/supabase/schema.sql` to Supabase and set `NEXT_PUBLIC_SUPABASE_URL` + `NEXT_PUBLIC_SUPABASE_ANON_KEY` in `crucible-web/.env.local`
+2026-05-27 06:07:05,668 INFO Dry run: would execute task with route=llama-cli
+2026-05-27 06:07:05,668 INFO Processing task: Verify auth/session flow and dashboard routing for `/login`, `/signup`, and `/dashboard`
+2026-05-27 06:07:05,668 INFO Dry run: would execute task with route=ollama
+2026-05-27 06:07:05,668 INFO Processing task: Confirm the signup flow handles email confirmation or immediate access correctly
+2026-05-27 06:07:05,668 INFO Dry run: would execute task with route=ollama
+2026-05-27 06:07:05,668 INFO Processing task: Validate `crucible-web/app/api/submit/route.ts` with `record_submission_and_update_streak` and logged-in user context
+2026-05-27 06:07:05,669 INFO Dry run: would execute task with route=llama-cli
+2026-05-27 06:07:05,669 INFO Processing task: Ensure mission IDs from `crucible-web/lib/missions.ts` match seeded DB mission UUIDs or resolve mission UUID lookup server-side
+2026-05-27 06:07:05,669 INFO Dry run: would execute task with route=ollama
+2026-05-27 06:07:05,669 INFO Dry run completed
+2026-05-27 06:09:32,257 INFO Processing task: Provision and connect the Supabase backend
+2026-05-27 06:09:32,257 INFO Dry run: would execute task with route=ollama
+2026-05-27 06:09:32,257 INFO Processing task: Apply `crucible-web/supabase/schema.sql` to Supabase and set `NEXT_PUBLIC_SUPABASE_URL` + `NEXT_PUBLIC_SUPABASE_ANON_KEY` in `crucible-web/.env.local`
+2026-05-27 06:09:32,257 INFO Dry run: would execute task with route=llama-cli
+2026-05-27 06:09:32,257 INFO Processing task: Verify auth/session flow and dashboard routing for `/login`, `/signup`, and `/dashboard`
+2026-05-27 06:09:32,257 INFO Dry run: would execute task with route=ollama
+2026-05-27 06:09:32,257 INFO Processing task: Confirm the signup flow handles email confirmation or immediate access correctly
+2026-05-27 06:09:32,258 INFO Dry run: would execute task with route=ollama
+2026-05-27 06:09:32,258 INFO Processing task: Validate `crucible-web/app/api/submit/route.ts` with `record_submission_and_update_streak` and logged-in user context
+2026-05-27 06:09:32,258 INFO Dry run: would execute task with route=llama-cli
+2026-05-27 06:09:32,258 INFO Processing task: Ensure mission IDs from `crucible-web/lib/missions.ts` match seeded DB mission UUIDs or resolve mission UUID lookup server-side
+2026-05-27 06:09:32,258 INFO Dry run: would execute task with route=ollama
+2026-05-27 06:09:32,258 INFO Dry run completed
+2026-05-27 06:09:41,387 INFO Processing task: Provision and connect the Supabase backend
+2026-05-27 06:10:45,568 ERROR Task failed: Ollama request failed: timed out
+2026-05-27 06:10:45,570 INFO Processing task: Apply `crucible-web/supabase/schema.sql` to Supabase and set `NEXT_PUBLIC_SUPABASE_URL` + `NEXT_PUBLIC_SUPABASE_ANON_KEY` in `crucible-web/.env.local`
+2026-05-27 06:10:45,570 ERROR Task failed: LLAMA_MODEL is not set; cannot run llama-cli task
+2026-05-27 06:10:45,572 INFO Processing task: Verify auth/session flow and dashboard routing for `/login`, `/signup`, and `/dashboard`
+2026-05-27 06:11:49,705 ERROR Task failed: Ollama request failed: timed out
+2026-05-27 06:11:49,707 INFO Processing task: Confirm the signup flow handles email confirmation or immediate access correctly
+2026-05-27 06:12:53,841 ERROR Task failed: Ollama request failed: timed out
+2026-05-27 06:12:53,843 INFO Processing task: Validate `crucible-web/app/api/submit/route.ts` with `record_submission_and_update_streak` and logged-in user context
+2026-05-27 06:12:53,843 ERROR Task failed: LLAMA_MODEL is not set; cannot run llama-cli task
+2026-05-27 06:12:53,845 INFO Processing task: Ensure mission IDs from `crucible-web/lib/missions.ts` match seeded DB mission UUIDs or resolve mission UUID lookup server-side
+2026-05-27 06:13:58,024 ERROR Task failed: Ollama request failed: timed out
+2026-05-27 06:13:58,025 INFO Execution completed

@@ -1,13 +1,6 @@
-3 key things to make the app fully functional
-Provision and connect the Supabase backend
-
-Apply schema.sql to your Supabase project so profiles, missions, submissions, the auth trigger, and record_submission_and_update_streak RPC are available.
-Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in your environment.
-Verify auth/session flow
-
-Confirm page.tsx, page.tsx, page.tsx, and layout.tsx are correctly routing users and protecting the dashboard.
-Ensure Supabase auth email confirmation/settings match the signup/login flow, or adjust the signup flow if confirmation is required.
-Complete the submission/streak pipeline
-
-Validate route.ts works with the logged-in user and the record_submission_and_update_streak function.
-Make sure the mission data in missions.ts aligns with seeded public.missions or switch to DB-backed missions if you want a single source of truth.
+- [ ] Provision and connect the Supabase backend — type: reasoning, route: ollama ⚠️ FAILED: Ollama request failed: timed out
+- [ ] Apply `crucible-web/supabase/schema.sql` to Supabase and set `NEXT_PUBLIC_SUPABASE_URL` + `NEXT_PUBLIC_SUPABASE_ANON_KEY` in `crucible-web/.env.local` — type: qa, route: llama-cli ⚠️ FAILED: LLAMA_MODEL is not set; cannot run llama-cli task
+- [ ] Verify auth/session flow and dashboard routing for `/login`, `/signup`, and `/dashboard` — type: reasoning, route: ollama ⚠️ FAILED: Ollama request failed: timed out
+- [ ] Confirm the signup flow handles email confirmation or immediate access correctly — type: reasoning, route: ollama ⚠️ FAILED: Ollama request failed: timed out
+- [ ] Validate `crucible-web/app/api/submit/route.ts` with `record_submission_and_update_streak` and logged-in user context — type: qa, route: llama-cli ⚠️ FAILED: LLAMA_MODEL is not set; cannot run llama-cli task
+- [ ] Ensure mission IDs from `crucible-web/lib/missions.ts` match seeded DB mission UUIDs or resolve mission UUID lookup server-side — type: reasoning, route: ollama ⚠️ FAILED: Ollama request failed: timed out
