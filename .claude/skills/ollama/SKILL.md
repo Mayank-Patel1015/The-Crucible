@@ -14,8 +14,7 @@ http://localhost:11434
 
 ## Step 1 — Discover Available Models
 
-Before any generation, list what's installed:
-
+**macOS / Linux (bash):**
 ```bash
 curl -s http://localhost:11434/api/tags | python3 -c "
 import json, sys
@@ -28,6 +27,12 @@ else:
         size_gb = m.get('size', 0) / 1e9
         print(f'  {m[\"name\"]}  ({size_gb:.1f} GB)')
 "
+```
+
+**Windows (PowerShell):**
+```powershell
+$r = Invoke-RestMethod http://localhost:11434/api/tags
+$r.models | ForEach-Object { "$($_.name)  ($([math]::Round($_.size/1GB,1)) GB)" }
 ```
 
 **Known installed models for this project** (from `autogen_crucible.py`):
@@ -46,7 +51,7 @@ Default to `qwen3:8b` unless the user specifies otherwise.
 
 ## Step 3 — Run a Generation
 
-### Non-streaming (full response — best for code/structured output):
+### macOS / Linux (bash):
 ```bash
 curl -s http://localhost:11434/api/generate \
   -H "Content-Type: application/json" \
@@ -54,14 +59,25 @@ curl -s http://localhost:11434/api/generate \
     "model": "qwen3:8b",
     "prompt": "YOUR PROMPT HERE",
     "stream": false,
-    "options": {
-      "temperature": 0.3,
-      "num_predict": 1024
-    }
+    "options": { "temperature": 0.3, "num_predict": 1024 }
   }' | python3 -c "import json,sys; r=json.load(sys.stdin); print(r.get('response',''))"
 ```
 
-### OpenAI-compatible endpoint (for autogen / openai SDK):
+### Windows (PowerShell):
+```powershell
+$body = @{
+    model   = "qwen3:8b"
+    prompt  = "YOUR PROMPT HERE"
+    stream  = $false
+    options = @{ temperature = 0.3; num_predict = 1024 }
+} | ConvertTo-Json
+
+$r = Invoke-RestMethod -Uri http://localhost:11434/api/generate `
+     -Method Post -ContentType "application/json" -Body $body
+$r.response
+```
+
+### OpenAI-compatible endpoint (autogen / openai SDK — same on both platforms):
 ```
 base_url: http://localhost:11434/v1
 api_key:  ollama   (dummy — Ollama ignores it)
@@ -70,7 +86,7 @@ Already configured in `autogen_crucible.py`.
 
 ## Step 4 — Capture and Use Output
 
-1. Run the curl command via bash
+1. Run the command for your platform via bash or PowerShell
 2. Parse the `response` field
 3. Present to user or pipe into next step
 4. For "draft X" tasks, save output to `The-Crucible-Data/ollama-outputs/YYYY-MM-DD-taskname.md`
@@ -91,6 +107,7 @@ Already configured in `autogen_crucible.py`.
 | `model not found` | Run `ollama pull qwen3:8b` |
 | Empty response | Increase `num_predict`, check model loaded |
 | Slow / timeout | Model still loading — wait 10s, retry |
+| PowerShell TLS error | Run `[Net.ServicePointManager]::SecurityProtocol = 'Tls12'` first |
 
 ## Integration with The-Crucible
 
@@ -104,18 +121,26 @@ Same model available for:
 ## Quick Commands
 
 ```bash
-# Is Ollama running?
+# macOS/Linux — Is Ollama running?
 curl -s http://localhost:11434/api/tags
 
-# List models
+# Windows PowerShell — Is Ollama running?
+Invoke-RestMethod http://localhost:11434/api/tags
+
+# Both platforms — list models
 ollama list
 
-# Pull a model
+# Both platforms — pull a model
 ollama pull qwen3:8b
 
-# Quick test
+# macOS/Linux — quick test
 curl -s http://localhost:11434/api/generate \
   -d '{"model":"qwen3:8b","prompt":"Say hello in 5 words.","stream":false}' \
   -H "Content-Type: application/json" \
   | python3 -c "import json,sys; print(json.load(sys.stdin)['response'])"
+
+# Windows PowerShell — quick test
+(Invoke-RestMethod -Uri http://localhost:11434/api/generate -Method Post `
+  -ContentType "application/json" `
+  -Body '{"model":"qwen3:8b","prompt":"Say hello in 5 words.","stream":false}').response
 ```
